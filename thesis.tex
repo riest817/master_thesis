@@ -34,7 +34,7 @@
 \usepackage{multirow}
 \usepackage{ascmac}
 \usepackage{fancybox}
-  \title {Blocklyを用いた非手続き型言語のためのプログラミング環境の構築}         
+  \title{Blocklyを用いた非手続き型言語のための \\ プログラミング環境の構築}
    \author{佐野 裕也}   
    \year{令和元年度~(2019年度)}
    \teacher{香川~考司} 
@@ -50,16 +50,16 @@
 % 2006/2/7改訂
 % タイトルを複数行にしたいときは、下のetitleenv環境を使ってください。
 \begin{etitleenv}
-Construction of a Learning Environment for Multiple Programming Languages using Blockly
+Construction of a Learning Environment for Non-procedural Programming Languages using Blockly
 \end{etitleenv}
 
 \begin{eabstract}
-When a learner studies his second or third programming language, he has to learn its basic concepts and its grammar at the same time in a short period, which is a heavy burden for him. We adopt Blockly, a library for constructing a block-type programming environment for beginners, and try to build a programming learning environment for languages other than procedural ones by using Blockly’s dynamic transformation behavior of blocks. Supported languages are C, JavaScript, Haskell, Bison Flex, Prolog, Scheme, and Python. In each language system, several new blocks corresponding to the grammar corresponding to the programming language are implemented, and in order to maintain the flexibility of the programming language, the function of dynamically transforming the blocks is also extended. At this time, the operation of the system needs to be easy because the purpose is to reduce the burden on the programming learner. Therefore, we will create a tutorial page that specifies the functions of the system and how to assemble the blocks. With these implementations, it is possible to build an environment that makes it easy for beginners to learn basic programming concepts, corresponding to the programming languages learned in university classes.
+When a learner studies his second or third programming language, he has to learn its basic concepts and its grammar at the same time in a short period, which is a heavy burden for him. We adopt Blockly, a library for constructing a block-type programming environment for beginners, and try to build a programming learning environment for languages other than procedural ones by using Blockly’s dynamic transformation behavior of blocks. Supported languages are C, Haskell, Flex, Prolog, and Scheme. In each language system, several new blocks corresponding to the grammar corresponding to the programming language are implemented, and in order to maintain the flexibility of the programming language, the function of dynamically transforming the blocks is also extended. At this time, the operation of the system needs to be easy because the purpose is to reduce the burden on the programming learner. Therefore, we will create a tutorial page that specifies the functions of the system and how to assemble the blocks. With these implementations, it is possible to build an environment that makes it easy for beginners to learn basic programming concepts, corresponding to the programming languages learned in university classes.
 
 \end{eabstract}
 
 \begin{jabstract}
-学習者は、第２、第３のプログラミング言語を勉強するとき、その基本概念とその文法を短時間で同時に学習する必要があり、これは学習者にとって大きな負担になる。 この問題を解決するために本研究では、初心者向けのブロック型プログラミング環境を構築するためのライブラリであるBlocklyを採用し、Blocklyのブロックの動的変換機能を利用して、手続き言語以外の言語向けのプログラミング学習環境の構築を試みる。対応言語は、C、JavaScript、Haskell、Bison Flex、Prolog、Scheme、Python である。それぞれの言語システムでプログラミング言語に対応した文法に対応した新たなブロックをいくつか実装し、プログラミング言語の柔軟性を保持するために、ブロックの動的変形機能の拡張も行う。その際に、プログラミング学習者の負担を軽減させることが目的なので、システムの操作は容易である必要がある。そこで、システムの各機能の説明、ブロックの組み立て方などを明記したチュートリアルのページを作成する。これらの実装により、大学の授業で学ぶプログラミング言語に対応して、プログラミング初学者がプログラミングの基礎概念を学習しやすい環境を構築できるようにする。
+学習者は、第２、第３のプログラミング言語を勉強するとき、その基本概念とその文法を短時間で同時に学習する必要があり、これは学習者にとって大きな負担になる。 この問題を解決するために本研究では、初心者向けのブロック型プログラミング環境を構築するためのライブラリであるBlocklyを採用し、Blocklyのブロックの動的変換機能を利用して、非手続き言語の言語向けのプログラミング学習環境の構築を試みる。対応言語は、C、Haskell、Flex、Prolog、Scheme である。それぞれの言語システムでプログラミング言語に対応した文法に対応した新たなブロックをいくつか実装し、プログラミング言語の柔軟性を保持するために、ブロックの動的変形機能の拡張も行う。その際に、プログラミング学習者の負担を軽減させることが目的なので、システムの操作は容易である必要がある。そこで、システムの各機能の説明、ブロックの組み立て方などを明記したチュートリアルのページを作成する。これらの実装により、大学の授業で学ぶプログラミング言語に対応して、プログラミング初学者がプログラミングの基礎概念を学習しやすい環境を構築できるようにする。
 
 \end{jabstract}
 
@@ -85,7 +85,7 @@ When a learner studies his second or third programming language, he has to learn
 \item 各プログラミング言語の文法
 \end{itemize} 
 
-　これらを学ぶことは、学習者にとって大きな負担である。この負担を軽減するために、ビジュアルプログラミング環境を利用して学習するという選択肢がある。ビジュアルプログラミング環境とは、プログラムをテキストで記述するのではなく、視覚的なオブジェクトでプログラミングするプログラミング環境である。代表的なビジュアルプログラミング環境に、Scratch\cite{Scratch}やWaterbear\cite{waterbear}などがある。本研究では、ビジュアルプログラミング環境を構築するためのJavaScriptライブラリであるBlockly\cite{Blockly}を用いる。
+これらを学ぶことは、学習者にとって大きな負担である。この負担を軽減するために、ビジュアルプログラミング環境を利用して学習するという選択肢がある。ビジュアルプログラミング環境とは、プログラムをテキストで記述するのではなく、視覚的なオブジェクトでプログラミングする環境である。代表的なビジュアルプログラミング環境に、Scratch\cite{Scratch}やWaterbear\cite{waterbear}などがある。本研究では、ビジュアルプログラミング環境を構築するためのJavaScriptライブラリであるBlockly\cite{Blockly}を用いる。
   
 Blockly は、Google によって開発された。ブロックを繋ぎ合せることでプログラミングを行う。Blockly を利用することで構文エラーに悩まされず、直感的にプログラミングをすることができる。JavaScript で記述されており、ドキュメントも豊富に用意されているためカスタマイズが容易である。また、Blockly で作成されるプログラムはWeb ベースのアプリケーションであるため、導入の作業が不要である。さらに、Blocklyアプリケーションで作成したブロックは、ライブラリにもともと備わっている機能で、JavaScript、Dart、Python、Lua、PHP の5種類のコードに変換して出力することができる。
 
@@ -135,7 +135,7 @@ Scratch\cite{Scratch} は MIT メディアラボが開発したブロックベ�
 
 	\subsection{Waterbear}
     
-Waterbear\cite{waterbear}は、2011年5月2日から3日にポートランドで開催されたJSConfで発表したDethe Elzaの発案によるものである。Waterbearの由来は、このシステムが世界中の極端な環境で見られる顕微鏡動物のように、非常に堅牢な言語にしたいからである。Waterbear のイメージを図\ref{fig:waterbear}に示す。 
+Waterbear\cite{waterbear}は、2011年5月2日から3日にポートランドで開催されたJSConfで発表したDethe Elzaの発案によるものである。Waterbearの由来は、このシステムが世界中の極端な環境で見られる顕微鏡動物のクマムシのように、非常に堅牢な言語にしたいからである。Waterbear のイメージを図\ref{fig:waterbear}に示す。 
 
 \begin{figure}[h]
 \begin{center}
@@ -147,7 +147,7 @@ Waterbear\cite{waterbear}は、2011年5月2日から3日にポートランドで
 
 	\subsection{Snap!}
 
-Snap! は、無料のブロックベースの教育用グラフィカルプログラミング言語およびオンラインコミュニティである。数学や計算の思考を学びながら、インタラクティブなアニメーション、ゲーム、ストーリーなどを探索、作成、編集することを目的としている。Scratchから影響を受けていて、Snap! には多くの高度な機能がある。Snap! のイメージを図\ref{fig:snap}に示す。 
+Snap! は、無料のブロックベースの教育用グラフィカルプログラミング言語およびオンラインコミュニティである。数学や計算の思考を学びながら、インタラクティブなアニメーション、ゲーム、ストーリーなどを探索、作成、編集することを目的としている。Scratchから影響を受けていて、Snap! にはラムダ計算、ネスト可能なスプライト、プロトタイプベースなどの高度な機能がある。Snap! のイメージを図\ref{fig:snap}に示す。 
 
 \begin{figure}[h]
 \begin{center}
@@ -175,7 +175,7 @@ Snap! は、無料のブロックベースの教育用グラフィカルプロ�
  
 	\subsection{Blockly プログラム生成の自動化によるWebベースC言語学習支援環境の機能拡張}
  
-  本大学の山形による2017年度の修士論文\cite{yamagata}\cite{yamagata2}である。
+  本大学の山形による2017年度の修士論文\cite{yamagata, yamagata2}である。
  山形は、汎用的なブロックの作成と、Haskell によるパーサーを用いてC 言語のソースコードからBlocklyのブロック定義とBlockly のプログラムに対応するXML 作成の自動化を行い、Blockly を用いたC 言語学習支援環境に追加することで機能を拡張した。Blockly 用のXML をソースコードから簡単に変換することが出来るため、指導者が初学者に提示する練習問題の作成をスムーズに行える。また、プログラミング初学者がBlockly を用いたC 言語学習支援環境を使用しC 言語の予習を行うだけでなく、ブロックベースからテキストベースに移行後はXML の自動生成を利用して学習者が作成したソースコードをXML に変換しBlockly のブロックとして確認することで、理解度の確認に使用することが可能となる。本研究では、C言語以外のソースコードでもブロックを生成できるか検討する。山形の研究で実装したシステムのイメージを図\ref{fig:yamagata}に示す。 
  
 \begin{figure}[h]
@@ -188,8 +188,7 @@ Snap! は、無料のブロックベースの教育用グラフィカルプロ�
 
 	\subsection{Blockly をベースとしたOCamlビジュアルプログラミングエディタ}
     
-こちらは、お茶の水女子大学の論文\cite{otya}で、著者は、松本晴香、浅井健一である。
-松本らの研究では、Google の提供するビジュアルプログラミングツールBlockly をベースとして、型システムや変数束縛を直感的なユーザインタフェースとして備えたOCamlエディタOCaml Blockly を実装した。Blockly の直感的なプログラム体験を維持しつつ、不正なプログラムを構成することを制限したユーザインタフェースを提案する。let 多相を含む型システムを実装し、結果の型や型変数を形や色として出力し、変数束縛やスコープ範囲を視覚的に表現した。関数型言語であるOcamlをBlocklyに適用された点を参考にしながら、本研究ではHaskell言語をBlocklyに対応させることを目指す。松本らの研究で実装したシステムのイメージを図\ref{fig:otya}に示す。 
+松本らの研究\cite{otya}では、Blockly をベースとして、型システムや変数束縛を直感的なユーザインタフェースとして備えたOCamlエディタOCaml Blockly を実装した。Blockly の直感的なプログラム体験を維持しつつ、不正なプログラムを構成することを制限したユーザインタフェースを提案する。let 多相を含む型システムを実装し、結果の型や型変数を形や色として出力し、変数束縛やスコープ範囲を視覚的に表現した。関数型言語であるをBlocklyに適用された点が本研究のHaskell言語をBlocklyに対応させる点と共通している。松本らの研究で実装したシステムのイメージを図\ref{fig:otya}に示す。 
 
 \begin{figure}[h]
 \begin{center}
@@ -201,8 +200,12 @@ Snap! は、無料のブロックベースの教育用グラフィカルプロ�
 
 	\subsection{To Block or not to Block, That is the Question: Students’ Perceptions of Blocks-based Programming}
     
-こちらは、国際学会 IDC'15で発表された論文\cite{idc}で、著者はアメリカ合衆国ノースウェスタン大学所属の David Weintrop と Uri Wilensky である。
-David Weintroprらの研究では、高校生がブロックベースのプログラミングツールをどのように見ているか、そのツールの使いやすさに貢献しているもの、ブロックベースのプログラミングとテキストベースのプログラミングの違いが最も顕著なものを調査した結果を報告している。高校生は、ブロックの自然言語記述、ドラッグアンドドロップ構成のやりとり、言語のブラウジングの容易さなど、ブロックベースのプログラミングを容易にするために、多くの要素が役立っていると報告している。また、高校生は、従来のテキストベースのアプローチと比較して、信頼性の欠如やブロックベースのプログラミングの欠点も特定している。この研究での発見は、ブロックベースのプログラミングとテキストベースのプログラミングとの間の識別された違いとともに、公立高校の環境でこのようなツールを使用することの適切性を理解するのに役立ち、そして既存のプログラミングツールの新機能や改訂版の設計に役立つことができる。
+国際学会 IDC'15で発表された論文\cite{idc}で、著者はアメリカ合衆国ノースウェスタン大学所属の David Weintrop と Uri Wilensky である。
+David Weintropらの研究では、高校生がブロックベースのプログラミングツールをどのように見ているか、そのツールの使いやすさに貢献しているもの、ブロックベースのプログラミングとテキストベースのプログラミングの違いが最も顕著なものを調査した結果を報告している。
+
+具体的には、ブロックの自然言語記述、ドラッグアンドドロップ構成のやりとり、言語のブラウジングの容易さなど、ブロックベースのプログラミングを容易にするために、多くの要素が役立っていると報告している。また、従来のテキストベースのアプローチと比較して、信頼性の欠如やブロックベースのプログラミングの欠点も特定している。
+
+この研究での発見は、ブロックベースのプログラミングとテキストベースのプログラミングとの間の識別された違いとともに、このようなツールを使用することの適切性を理解するのに役立ち、そして既存のプログラミングツールの新機能や改訂版の設計に役立つことができる。システムの対象者が初めてプログラミングを行う高校生であることが本研究のシステム対象者と年齢層が近い。また、ビジュアルプログラミング言語に対する肯定的な意見と否定的な意見が十分に書かれている点も共通している。高校生へのインタビューの様子を図\ref{fig:idc}に示す。
 
 \begin{figure}[h]
 \begin{center}
@@ -239,7 +242,7 @@ David Weintroprらの研究では、高校生がブロックベースのプロ�
 \item コメントの追加
 \item ブロックの接続表現の切り替え
 \item ブロックの表現の簡略化
-\item ブロックの透明化
+\item ブロックの無効化
 \item ブロックの削除
 \item ブロックの動作を説明するWebページの表示
 \end{itemize} 
@@ -306,26 +309,6 @@ XMLコード部は、作成したブロックに対応するXMLコードを表�
 \end{center}%
 \end{figure}% 
 
-   \section{Mutator機能}
-   
-Blocklyの機能にMutatorがある。Mutatorは、ブロックの動的変形を行い、その結果を XML に保存する機能、およびXMLからロードする機能である。図\ref{fig:mutator1}にMutatorのイメージを示す。Mutatorの機能が使えるブロックには、左上に歯車がある場合がある。その歯車のマークを押すと、その近くに吹き出しの形をした小窓が現れる。小窓の左半分はブロックメニュー部、右半分はワークスペース部となっている。小窓の中のコンポーネントは、このブロック限定のものである。小窓のブロックメニュー部から拡張したいブロックを取り出し、小窓のワークスペース部の既存のブロックに取り付ける。すると、吹き出し元のブロックが変形される。図\ref{fig:mutator2}が、そのときのイメージである。Mutator機能によって、ブロックの形をカスタマイズでき、ブロックメニュー部で用意されるブロックの種類を大幅に減らすことができる。
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.5]{img/mutator1.eps}
-\caption{動的変形前のMutatorブロック}%
-\label{fig:mutator1}
-\end{center}%
-\end{figure}% 
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.5]{img/mutator2.eps}
-\caption{動的変形後のMutatorブロック}%
-\label{fig:mutator2}
-\end{center}%
-\end{figure}% 
-
    \section{ブロックの定義}
    
 ここで、ブロックの定義方法について述べる。
@@ -348,7 +331,7 @@ Blockly.Blocks['sample_name'] = {
 };
 \end{lstlisting}
 
-Blocklyには新たなブロックを定義するためにいくつかの関数が用意されている。以下にそれぞれの関数の機能と使用方法を示す。
+Blocklyには新たなブロックを定義するためにいくつかのAPIが用意されている。以下にそれぞれのAPIの機能と使用方法を示す。
 
 \begin{itemize}
 
@@ -393,7 +376,7 @@ this.setPreviousStatement(true);
 
 \item setNextStatement
 
-setNextStatementは、ブロック下接続部の有無を定義する関数である。この関数も同様に、第1引数がtrueなら接続部が有りで、falseなら無しである。
+setNextStatementは、ブロック下接続部の有無を定義する。第1引数がtrueなら接続部が有りで、falseなら無しである。
 以下は、setNextStatementの使用例である。
 
 \shadowbox{
@@ -406,7 +389,7 @@ this.setNextStatement(true);
 
 \item setOutput
 
-setOutputは、ブロック左接続部の有無を定義する関数である。第1引数がtrueなら接続部が有りで、falseなら無しである。第2引数は、接続先のブロック型を指定する。接続先のブロックの型が指定したものと同じならブロックを接続することができる。型の指定がない場合は、第2引数ごと無くすか、nullを指定する。
+setOutputは、ブロック左接続部の有無を定義する。第1引数がtrueなら接続部が有りで、falseなら無しである。第2引数は、接続先のブロック型を指定する。接続先のブロックの型が指定したものと同じならブロックを接続することができる。型の指定がない場合は、第2引数ごと無くすか、nullを指定する。
 以下は、setOutputの使用例である。
 
 \shadowbox{
@@ -419,7 +402,7 @@ this.setOutput(true, 'String');
 
 \item appendValueInput
 
-appendValueInputは、ブロック右接続部の有無を定義する関数である。この接続部に関する関数は、1つのブロックに対し複数指定できる。第1引数には、接続部の名称を指定できる。接続部の名称を指定することで、ブロックの他の接続部と区別させるためである。一般には、変数ブロックや数ブロックを接続する。setCheck関数をそのあとにつけることで接続先のブロックの型を指定できる。
+appendValueInputは、ブロック右接続部の有無を追加する。この接続部に関する関数は、1つのブロックに対し複数指定できる。第1引数には、接続部の名称を指定できる。接続部の名称を指定することで、ブロックの他の接続部と区別させるためである。一般には、変数ブロックや数ブロックを接続する。setCheck関数をそのあとにつけることで接続先のブロックの型を指定できる。
 以下は、appendValueInputの使用例である。
 
 \shadowbox{
@@ -432,7 +415,7 @@ this.appendValueInput('A').setCheck('int');
 
 \item setInputsInline
 
-setInputsInlineは、appendValueInput関数で定義した右接続部をブロックの内側にするかを定義する関数である。第１引数がtrueなら内側接続として定義し、falseなら右接続部そのままである。
+setInputsInlineは、appendValueInputで定義した右接続部をブロックの内側にするかを定義する。第１引数がtrueなら内部接続として定義し、falseなら外部接続である。
 以下は、setInputsInlineの使用例である。
 
 \shadowbox{
@@ -445,7 +428,7 @@ this.setInputsInline(true);
 
 \item appendStatementInput
 
-appendStatementInputは、ブロックの内側で上接続部を定義したブロックと接続できるように定義する関数である。第1引数には、接続部の名称を指定できる。接続部の名称を指定することで、ブロックの他の接続部と区別させるためである。一般には、命令ブロックと接続する。
+appendStatementInputは、ブロックの内側で上接続部を定義したブロックと接続できるように定義する。第1引数には、接続部の名称を指定できる。接続部の名称を指定することで、ブロックの他の接続部と区別させるためである。一般には、命令ブロックと接続する。
 以下は、appendStatementInputの使用例である。
 
 \shadowbox{
@@ -458,7 +441,7 @@ this.appendStatementInput('DO');
 
 \item setTooltip
 
-setTooltipは、ブロック上にカーソルを合わせたときに表示される内容を定義する関数である。第１引数は、表示する内容を文字列で定義する。
+setTooltipは、ブロック上にカーソルを合わせたときに表示される内容を定義する。第１引数は、表示する内容を文字列で定義する。
 以下は、setTooltipの使用例である。
 
 \shadowbox{
@@ -469,13 +452,34 @@ this.setTooltip("このブロックは、サンプルです。");
 \end{minipage}
 }
 
+   \section{Mutator機能}
+   
+Blocklyの機能にMutatorがある。Mutatorは、ブロックの動的変形を行い、その結果を XML に保存する機能、およびXMLからロードする機能である。図\ref{fig:mutator1}にMutatorのイメージを示す。Mutatorの機能が使えるブロックには、左上に歯車がある場合がある。その歯車のマークを押すと、その近くに吹き出しの形をした小窓が現れる。小窓の左半分はブロックメニュー部、右半分はワークスペース部となっている。小窓の中のコンポーネントは、このブロック限定のものである。小窓のブロックメニュー部から拡張したいブロックを取り出し、小窓のワークスペース部の既存のブロックに取り付ける。すると、吹き出し元のブロックが変形される。図\ref{fig:mutator2}が、そのときのイメージである。Mutator機能によって、ブロックの形をカスタマイズでき、ブロックメニュー部で用意されるブロックの種類を大幅に減らすことができる。
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.5]{img/mutator1.eps}
+\caption{動的変形前のMutatorブロック}%
+\label{fig:mutator1}
+\end{center}%
+\end{figure}% 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.5]{img/mutator2.eps}
+\caption{動的変形後のMutatorブロック}%
+\label{fig:mutator2}
+\end{center}%
+\end{figure}% 
+
+
    \section{Mutaorの定義}
    
-まず初めに、Mutatorを定義したいときは、init関数のなかに以下の関数を記述する。
+まず初めに、Mutatorを定義したいときは、initのなかに以下のAPIを記述する。
 
 \item setMutator
 
-setMutatorは、ブロックにMutator機能を実装したいときに定義する関数である。setMutatorの引数内で、新たにMutator関数を呼び出し、その引数にMutatorダイアログ内のコンテナブロックを呼び出す。
+setMutatorは、ブロックにMutator機能を実装したいときに呼び出す。setMutatorの引数内で、新たにMutatorコンストラクタを呼び出し、その引数にMutatorダイアログ内のコンテナブロックの名前を指定する。
 
 \shadowbox{
 \begin{minipage}[t]{14cm}
@@ -489,7 +493,7 @@ this.setMutator(new Blockly.Mutator(['コンテナブロック名]));
 
 \item mutationToDom
 
-関数mutationToDomは、ブロックがXMLに書き込まれるたびに呼び出される。関数が存在しないかnullを返す場合、突然変異は記録されない。関数が存在し、 'mutation' XML要素を返す場合、この要素（およびプロパティまたは子要素）は、ブロックのXML表現の先頭に保存される。
+mutationToDomは、ブロックがXMLに書き込まれるたびに呼び出される。このAPIが存在しないかnullを返す場合、mutationは記録されない。APIが存在し、 'mutation' XML要素を返す場合、この要素（およびプロパティまたは子要素）は、ブロックのXML表現の先頭に保存される。
 
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 mutationToDom: function() {
@@ -501,7 +505,7 @@ mutationToDom: function() {
 
 \item domToMutation
 
-逆関数domToMutationは、ブロックがXMLから復元されるたびに呼び出される。この関数が存在する場合、ブロックの「突然変異」XML要素が渡される。関数は、要素を解析し、要素のプロパティと子要素に基づいてブロックを再構成できる。
+domToMutationは、ブロックがXMLから復元されるたびに呼び出される。このAPIが存在する場合、ブロックのMutationXML要素が渡される。要素を解析し、要素のプロパティと子要素に基づいてブロックを再構成する。
 
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 domToMutation: function(xmlElement) {
@@ -512,7 +516,7 @@ domToMutation: function(xmlElement) {
 
 \item decompose
 
-Mutatorダイアログが開かれると、ブロックのdecompose関数が呼び出され、Mutatorのワークスペースが作成される。この関数はMutatorダイアログにコンテナブロックを作成して初期化し、それを返す必要がある。このコンテナブロックに適切なサブブロックを追加する必要がある。
+Mutatorダイアログが開かれると、ブロックのdecomposeが呼び出され、Mutatorのワークスペースが作成される。このAPIはMutatorダイアログにコンテナブロックを作成して初期化し、それを返す必要がある。このコンテナブロックに適切なサブブロックを追加する必要がある。
 
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 decompose: function(workspace) {
@@ -526,7 +530,7 @@ decompose: function(workspace) {
 
 \item compose
 
-Mutatorダイアログがそのコンテンツを保存すると、ブロックのcompose関数が呼び出され、新しい設定に従って元のブロックが変更される。この関数には、Mutatorのワークスペースからコンテナブロック（compose関数によって作成されて返されたものと同じブロック）が渡されれる。通常、この関数はコンテナブロックに接続されたサブブロックを適用し、それに応じて元のブロックを更新する。
+Mutatorダイアログがそのコンテンツを保存すると、ブロックのcomposeが呼び出され、新しい設定に従って元のブロックが変更される。このAPIには、Mutatorのワークスペースからコンテナブロック（composeによって作成されて返されたものと同じブロック）が渡されれる。通常、compseはコンテナブロックに接続されたサブブロックを適用し、それに応じて元のブロックを更新する。
 
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 compose: function(containerBlock) {
@@ -538,22 +542,12 @@ compose: function(containerBlock) {
 
 \item saveConnections
 
-saveConnection関数は、入力が並べ替えられた場合でも、元のブロックにすでに接続されているブロックが正しい入力に接続されたままになるように保証する。
+saveConnectionは、入力が並べ替えられた場合でも、元のブロックにすでに接続されているブロックが正しい入力に接続されたままになるように保証する。
 
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 saveConnections: function(containerBlock) {
   var itemBlock = containerBlock.getInputTargetBlock('STACK');
   ...
-}
-\end{lstlisting}
-
-\item updateShape\_
-
-updateShape\_関数は、Mutatorダイアログ内のブロックを操作したときの元のブロックがどのようにして動的変形するかを定義する。この関数は、domToMutation関数内で呼び出される。
-
-\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
-updateShape_: function() {
-  ...    
 }
 \end{lstlisting}
 
@@ -578,7 +572,7 @@ updateShape_: function() {
 
 \item Blockly for Haskell
 
-本研究であらたに導入される言語である。Blocklyの既存に対応している言語と先行研究で実装されている言語はいずれも命令型プログラミング言語であるが、Haskell[4]は宣言型プログラミング言語である。Blocklyに宣言型プログラミング言語として新たに導入される言語として決定した。
+本研究であらたに導入される言語である。Blocklyの既存に対応している言語と先行研究で実装されている言語はいずれも命令型プログラミング言語であるが、Haskell[4]は宣言型プログラミング言語である。
 
 \item Blockly for Flex
 
@@ -586,7 +580,7 @@ Flex\cite{flex}(フレックス)は、レクサージェネレータであり、
 
 \item Blockly for Prolog
 
-Prolog(プロログ)\cite{prolog}は、非手続き型言語の一つで論理型言語に分類される。事物と事物間の関係に関する問題を解くために使われるプログラミング言語である。
+Prolog（プロログ）は、非手続き型言語の一つで論理型言語に分類される。事物と事物間の関係に関する問題を解くために使われるプログラミング言語である。
 
 \item Blockly for Scheme
 
@@ -594,7 +588,7 @@ Scheme（スキーム）は、コンピュータ・プログラミング言語 L
 
 \item Blockly for C and Python
 
-先行研究で山形が開発したC言語のシステムからPythonのソースコードが出力できる拡張を行った。C言語の学習後、Bloclyを通してPythonへの学習移行しやすいように本システムを実装した。ブロックは、C言語用に用意されたものである。また、C言語のソースコードを入力して、ブロックタブを押すと、ワークスペース部にC言語ソースコードに対応したブロックが生成される機能がある。
+先行研究で山形が開発したC言語のシステムからPythonのソースコードが出力できる拡張を行った。C言語の学習後、Blocklyを通してPythonへの学習移行がしやすいように本システムを実装した。ブロックは、C言語用に用意されたものである。また、C言語のソースコードを入力して、ブロックタブを押すと、ワークスペース部にC言語ソースコードに対応したブロックが生成される機能がある。
 
 \end{itemize} 
    
@@ -625,7 +619,7 @@ Blocklyの既存のデモページでは、1つのWEBページでBlocklyの対�
 
 \item Blockly で表現できる正規表現の範囲
 
-- 文字列そのものを表す。以下の記述例は、abc+という4文字を表している。
+- 二重引用符で囲むことで文字列そのものを表す。以下の記述例は、abc+という4文字を表している。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -635,7 +629,7 @@ Blocklyの既存のデモページでは、1つのWEBページでBlocklyの対�
 \end{minipage}
 }
 
-- 特殊文字を文字そのものにする。以下の記述例は、* という特殊文字を文字化してる。
+- バックスラッシュは、特殊文字を文字そのものにする。以下の記述例は、* という特殊文字を文字化してる。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -645,7 +639,7 @@ Blocklyの既存のデモページでは、1つのWEBページでBlocklyの対�
 \end{minipage}
 }
 
-- 文字の集合を表現する。以下の表記が記述例である。aまたはbまたはcの1文字を表している。
+- 角括弧は、文字の集合を表現する。以下の表記が記述例である。aまたはbまたはcの1文字を表している。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -655,7 +649,7 @@ Blocklyの既存のデモページでは、1つのWEBページでBlocklyの対�
 \end{minipage}
 }
 
-- 文字集合の範囲を指定する。以下の記述例は、0から9までの1文字を表している。
+- 角括弧ないのハイフンは、文字集合の範囲を指定する。以下の記述例は、0から9までの1文字を表している。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -665,7 +659,7 @@ Blocklyの既存のデモページでは、1つのWEBページでBlocklyの対�
 \end{minipage}
 }
 
-- 補集合を指定する。以下の記述例は、数字位階の1文字を表している。
+- 角括弧の先頭のキャレットは、補集合を指定する。以下の記述例は、数字位階の1文字を表している。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -675,7 +669,7 @@ Blocklyの既存のデモページでは、1つのWEBページでBlocklyの対�
 \end{minipage}
 }
 
-- 改行を除く任意の文字を表現する。以下の表記が記述例である。
+- ピリオドは、改行を除く任意の文字を表現する。以下の表記が記述例である。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -685,7 +679,7 @@ Blocklyの既存のデモページでは、1つのWEBページでBlocklyの対�
 \end{minipage}
 }
 
-- 二者択一を表現する。以下の記述例は、aまたはbの1文字を表している。
+- バーティカルバーは、二者択一を表現する。以下の記述例は、aまたはbの1文字を表している。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -695,7 +689,7 @@ a|b
 \end{minipage}
 }
 
-- 選択の任意を表現する。以下の記述例は、abまたはaを表している。
+- クエスチョンマークは、選択の任意を表現する。以下の記述例は、abまたはaを表している。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -705,7 +699,7 @@ ab?
 \end{minipage}
 }
 
-- 0個以上の繰り返しを表現する。以下の記述例は、aの0個以上の繰り返しを表している。
+- アスタリスクは、0個以上の繰り返しを表現する。以下の記述例は、aの0個以上の繰り返しを表している。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -715,7 +709,7 @@ a*
 \end{minipage}
 }
 
-- 1個以上の繰り返しを表現する。以下の記述例は、aの1個以上の繰り返しを表している。
+- プラス記号は、1個以上の繰り返しを表現する。以下の記述例は、aの1個以上の繰り返しを表している。
 
 \shadowbox{
 \begin{minipage}[t]{3cm}
@@ -739,9 +733,9 @@ Blockly for Flex では、先行研究で尾崎が実装したブロックを参
 
 \item 文字クラスブロック
 
-文字クラスブロックには、新たな動的変形機能が実装されており、flexシステムの正規表現ブロックカテゴリで用意されている。以下の図\ref{fig:character_class_block}に、文字クラスブロックの動的変形機能を示す。
+文字クラスブロックには、新たな動的変形機能が実装されており、Flexシステムの正規表現ブロックカテゴリで用意されている。以下の図\ref{fig:character_class_block}に、文字クラスブロックの動的変形機能を示す。
 
-正規表現初心者は、「［」と「］」の間に正規表現を書き込もうとするのはよくある間違いである。実際には、「\textasciicircum」や「-」、「\textbackslash 」、「］」以外の文字は「［」と「］」の間に特別な意味を持たないため、「（」、「）」などの正規表現の特殊文字でさえも「)」、「\textbar」および「*」は文字自体として扱われる。この間違いを避けるために、文字クラス用に提案されたブロックでは、内部で他の正規表現を許可せずに、動的変形ダイアログで3種類のサブブロックを提供している。範囲ブロックをサブブロックとして接続すると、2つの入力フォームが表示され、親ブロックに文字範囲を入力できる。単一文字のサブブロックを追加する場合、親ブロックに任意の単一文字を入力できる。特殊文字サブブロックの場合、5つの特殊文字から選択できるドロップダウンメニューが表示される。
+正規表現初心者は、「［」と「］」の間に正規表現を書き込もうとするのはよくある間違いである。実際には、「\textasciicircum」や「-」、「\textbackslash 」、「］」以外の文字は「［」と「］」の間では特別な意味を持たないため、「（」、「）」、「\textbar」および「*」などの正規表現の特殊文字さえも文字自体として扱われる。この間違いを避けるために、文字クラス用に提案されたブロックでは、内部で他の正規表現を許可せずに、動的変形ダイアログで3種類のサブブロックを提供している。範囲ブロックをサブブロックとして接続すると、2つの入力フォームが表示され、親ブロックに文字範囲を入力できる。単一文字のサブブロックを追加する場合、親ブロックに任意の単一文字を入力できる。特殊文字サブブロックの場合、5つの特殊文字から選択できるドロップダウンメニューが表示される。
 
 \begin{figure}[h]
 \begin{center}
@@ -753,7 +747,7 @@ Blockly for Flex では、先行研究で尾崎が実装したブロックを参
 
 \item 正規表現連結ブロック
 
-FlexのBlocklyブロックのもう1つの問題は、バイナリ演算子に2値ブロックのみを使用すると、ブロックが深く入れ子になりすぎて表示に収まらないことである。 Flexでは、連結（単純に並置される）と代替（「\textbar」演算子で表される）が正規表現で非常に頻繁に使用されるため、この問題は深刻である。これを解決するために、\ref{fig:flex_connection_block}の連結ブロックでは、値入力の数をMutatorダイアログで増やして、複数連結または複数代替正規表現を表すことができる。繰り返しブロックでは、プルダウンメニューで繰り返しの意味を示す演算子「+」、「*」、「？」から演算子を選択できる。提案されたブロックは、実際のFlexキーワードと演算子記号を使用する。これにより、ユーザーは構文エラーに煩わされることなくプログラミングできる。
+FlexのBlocklyブロックのもう1つの問題は、バイナリ演算子に2引数ブロックのみを使用すると、ブロックが深く入れ子になりすぎて画面に収まらないことである。 Flexでは、連結（単純に並置される）と代替（「\textbar」演算子で表される）が正規表現で非常に頻繁に使用されるため、この問題は深刻である。これを解決するために、\ref{fig:flex_connection_block}の連結ブロックでは、値入力の数をMutatorダイアログで増やして、複数連結または複数代替正規表現を表すことができる。繰り返しブロックでは、プルダウンメニューで繰り返しの意味を示す演算子「+」、「*」、「？」から演算子を選択できる。提案されたブロックは、実際のFlexキーワードと演算子記号を使用する。これにより、ユーザーは構文エラーに煩わされることなくプログラミングできる。
 
 \begin{figure}[h]
 \begin{center}
@@ -771,27 +765,35 @@ FlexのBlocklyブロックのもう1つの問題は、バイナリ演算子に2�
 
 \begin{itemize}
 
-\item リスト内包表記のソースコード例
+\item Haskell コードの説明
 
-Haskellは純粋に関数型プログラミング言語であり、手続き型言語とはかなり異なる構文を持っている。リスト内包表記のソースコード例を以下に示す。
+Haskellは純粋な関数型プログラミング言語であり、手続き型言語とはかなり異なる構文を持っている。以下は、Haskellのソースコード例を示す。
+ここで、x \verb|<|-[0..n]などの形式はジェネレーターである。これは、変数xがリスト[0..n]の要素の1つにバインドされることを意味する。mod（x + y）2 == 1などのブール式は、ガードと呼ばれる。変数間で成り立つ条件を表す。したがって、式foo 3はリスト[（0,1）,（0,3）,（1,2）,（2,3）]に評価される。以下のソースコードで示されたジェネレーターを含むリスト内包表記、関数、do式は新たにブロックを実装する必要がある。
 
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 foo n = [（x、y）| x <-[0..n]
                  , y <-[x..n]
                  , mod（x + y）2 == 1]
+main = do
+    print (foo 3)
 \end{lstlisting}
 
-ここで、x \verb|<|-[0..n]などの形式はジェネレーターである。これは、変数xがリスト[0..n]の要素の1つにバインドされていることを意味する。mod（x + y）2 == 1などのブール式は、ガードと呼ばれる。変数間で保持される条件を表す。したがって、式foo 3はリスト[（0,1）,（0,3）,（1,2）,（2,3）]に評価される。
+以下の図\ref{fig:haskell_blocks_example}に、上記の Haskell コードを新しく実装したブロックで接続した例を示す。
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.8]{img/haskell_blocks_example.PNG}
+\caption{Haskell ソースコードを新しく実装したブロックで接続した例}%
+\label{fig:haskell_blocks_example}
+\end{center}%
+\end{figure}% 
 
 \item リスト内包表記ブロック
 
-2つの図共に左図が、リスト内包表記ブロックに何も接続していない初期状態で、右図がさきほどのHaskellのソースコード例をリスト内包表記ブロックを使って接続した例である。以下の図\ref{fig:inner_table_old}に内包表記ブロックの改善前の状態、図\ref{fig:inner_table_new}に内包表記ブロックの改善後の状態をを示す。
-
 Blockly for Haskell のリスト内包表記カテゴリーで内包表記ブロックを改善して実装した。リスト内包表記のソースコードは、リストの中に１つの式と複数の限定式で記述される。
-
-改善前は、内包表記と書かれた右上のソケットに式を挿入式し、限定式と書かれた箇所の右に複数の限定式を表すブロックを挿入する仕様となっている。しかし、限定式の挿入部分に式ブロックを挿入することができないので黒ブロックで用意して接続部を調整している。この黒ブロックは、XML形式に変換する際に不具合が起こる原因となる。
-
 改善後は、「内包表記　限定式」という表記をなくしてシンプルにした。そして、接続部の調整するブロックを垂直接続から内部接続に変更できるブロックを用意し、XML形式に変換する際に起こる不具合を修正した。
+以下の図\ref{fig:inner_table_new}に改善した内包表記ブロックを示す。左図が、リスト内包表記ブロックに何も接続していない初期状態で、右図がさきほどのHaskellのソースコード例をリスト内包表記ブロックを使って接続した例である。
+
 
 \shadowbox{
 \begin{minipage}[t]{6cm}
@@ -803,23 +805,15 @@ Blockly for Haskell のリスト内包表記カテゴリーで内包表記ブロ
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.5]{img/inner_table.eps}
-\caption{リスト内包表記ブロックの改善前}%
-\label{fig:inner_table_old}
-\end{center}%
-\end{figure}% 
-
-\begin{figure}[h]
-\begin{center}
 \includegraphics[scale=0.5]{img/inner_table.PNG}
-\caption{リスト内包表記ブロックの改善後}%
+\caption{リスト内包表記ブロック}%
 \label{fig:inner_table_new}
 \end{center}%
 \end{figure}% 
 
 \item 関数定義ブロック
 
-Blockly for Haskell で関数定義ブロックを改善して実装した。以下の図\ref{fig:haskell_function1}に、関数定義ブロックの改善前の状態を示し、図\ref{fig:haskell_function_new}に、関数定義ブロックの改善後の状態を示す。関数定義ブロックでは、Mutator機能で関数の仮引数を自由に設定することができ、Mutatorダイアログのなかの引数ブロックを結合コンテナブロックに組み立てることで仮引数を調整できる。しかし、改善前の状態では、「式 ===\textgreater」の右の接続部に式を表すブロックを接続し、その下に引数を表すブロックを挿入する仕様だったが、改善後では「=」の左部分のソケットに引数ブロックを「=」右部分に式ブロックを挿入できるように改善した。
+Blockly for Haskell で関数定義ブロックを改善して実装した。以下の図\ref{fig:haskell_function1}に、関数定義ブロックの改善前の状態を示し、図\ref{fig:haskell_function_new}に、関数定義ブロックの改善後の状態を示す。関数定義ブロックでは、Mutator機能で関数の仮引数の数を自由に設定することができ、Mutatorダイアログのなかの引数ブロックを結合コンテナブロックに組み立てることで仮引数を調整できる。しかし、改善前の状態では、「式 ===\textgreater」の右の接続部に式を表すブロックを接続し、その下に引数を表すブロックを挿入する仕様だったが、改善後では「=」の左部分のソケットに引数ブロックを「=」右部分に式ブロックを挿入できるように改善した。
 
 \begin{figure}[h]
 \begin{center}
@@ -839,7 +833,7 @@ Blockly for Haskell で関数定義ブロックを改善して実装した。以
 
 \item 関数呼び出しブロック
 
-Blockly for Haskell で関数呼び出しブロックを改善して実装した。関数呼び出しブロック自身でもMutator機能で引数を調整できるように改善した。以下の図\ref{fig:haskell_function_call_old}に改善前の関数呼び出しブロックを示し、図\ref{fig:haskell_function_call_new}に改善後の関数呼び出しブロックを示す。
+Blockly for Haskell で関数呼び出しブロックを改善して実装した。改善前では、関数呼び出しブロックのみでは引数の数を調整することができず、引数の数を変えたい場合は、関数ブロックのMutator機能で調整しなければならなかった。改善後では関数呼び出しブロック自身でもMutator機能で引数の数を調整できるように改善した。以下の図\ref{fig:haskell_function_call_old}に改善前の関数呼び出しブロックを示し、図\ref{fig:haskell_function_call_new}に改善後の関数呼び出しブロックを示す。
 
 \begin{figure}[h]
 \begin{center}
@@ -867,7 +861,7 @@ deleteOne n (x:xs) = if n == x then xs else x:deleteOne n xs
 
 以下の図\ref{fig:haskell_function_example}に、上記のHaskellソースコードを改善した関数定義ブロックと関数呼び出しブロックで接続した例を示す。
 
-今回の例のパターンマッチングでは、第1仮引数は任意の数で、第2仮引数は任意のリストである。その際のリストの先頭要素をｘ、それ以降のリストをxsを表す。式と書かれた接続部では、もしも実行ブロックを接続し、もしも任意の数nとリストの先頭要素xが等しければリストxsを返し、それ以外なら先頭要素がxでそれ以降の要素は関数deleteOneを呼び出したリストを返す。リストの中で呼び出した関数deleteOneの第1実引数はn、第2実引数はxsである。
+今回の例のパターンマッチングでは、第1仮引数は変数で、第2仮引数はリストである。その際のリストの先頭要素をｘ、それ以降のリストをxsを表す。式と書かれた接続部では、もしも実行ブロックを接続し、もしも変数nとリストの先頭要素xが等しければリストxsを返し、それ以外なら先頭要素がxでそれ以降の要素は関数deleteOneを呼び出したリストを返す。リストの中で呼び出した関数deleteOneの第1実引数はn、第2実引数はxsである。
 
 \begin{figure}[h]
 \begin{center}
@@ -877,9 +871,21 @@ deleteOne n (x:xs) = if n == x then xs else x:deleteOne n xs
 \end{center}%
 \end{figure}% 
 
+\item 制御ブロック群
+
+Blockly for Haskell の制御カテゴリーでdoブロック、letブロック、let inブロック、case ofブロックを実装した。do式は糖衣構文であり、よりシンプルでわかりやすい書き方で書くことができる。let式は、どの位置でも変数を束縛でき、let自身も式になる。letの最後に式を挿入したい場合は、let in式を使う。case式は、変数の指定した値に対するコードブロックを評価できる。それぞれの式は、Haskell独自の文法である。以下の図\ref{fig:haskell_control}に、制御ブロックのイメージを示す。
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.5]{img/haskell_control.PNG}
+\caption{制御ブロック群}%
+\label{fig:haskell_control}
+\end{center}%
+\end{figure}% 
+
 \item 標準関数ブロック
 
-システム利用者から、「標準関数を扱えるブロックが欲しい」といった要望が複数寄せられたので、Blockly for Haskell で、標準関数ブロックを実装した。以下の図\ref{fig:haskell_standard_functions}に、標準関数ブロックのイメージを示す。標準関数ブロックは、標準関数カテゴリーで6種類用意されているのが、標準関数ブロックの選択フォームではそれ以上の種類の標準関数を選択することができる。そして、Mutator機能で標準関数にあった引数の数を調整することができる。
+システム利用者から、「標準関数を扱えるブロックが欲しい」といった要望が複数寄せられたので、Blockly for Haskell で、標準関数ブロックを実装した。以下の図\ref{fig:haskell_standard_functions}に、標準関数ブロックのイメージを示す。標準関数ブロックは、標準関数カテゴリーで6種類用意されているが、標準関数ブロックの選択フォームではそれ以上の種類の標準関数を選択することができる。そして、Mutator機能で標準関数にあった引数の数を調整することができる。
 
 \begin{figure}[h]
 \begin{center}
@@ -948,9 +954,9 @@ Blockly for Prolog の述語カテゴリーに述語定義ブロックを実装�
 \end{center}%
 \end{figure}%
 
-\item 述語ブロック
+\item 述語呼び出しブロック
 
-Blockly for Prolog の述語カテゴリーに述語ブロックを実装した。述語ブロックでは、述語定義ブロックで定義された事実や規則を継承したい場合に使用する。述語定義ブロックをワークスペース部に設置したときに述語カテゴリーで選択できるようになり、ワークスペース部に同一の名称の述語定義ブロックが削除されると同時に述語ブロックも削除される。以下の図\ref{fig:prolog_predicate}に述語ブロックのイメージを示す。
+Blockly for Prolog の述語カテゴリーに述語呼び出しブロックを実装した。述語呼び出しブロックでは、述語定義ブロックで定義された事実や規則を呼び出したい場合に使用する。述語定義ブロックをワークスペース部に設置したときに述語カテゴリーで選択できるようになり、ワークスペース部に同一の名称の述語定義ブロックが削除されると同時に述語ブロックも削除される。以下の図\ref{fig:prolog_predicate}に述語ブロックのイメージを示す。
 
 \begin{figure}[h]
 \begin{center}
@@ -962,7 +968,7 @@ Blockly for Prolog の述語カテゴリーに述語ブロックを実装した�
 
 \item ファンクター定義ブロック
 
-Blockly for Prolog のファンクターカテゴリーにファンクター定義ブロックを実装した。以下の図\ref{fig:prolog_functor}に、新たに実装したファンクター定義ブロックのイメージを示す。ファンクター定義ブロックでは、ある事物を定義することができる。入力フォームで事物の名称を入力し、述語定義ブロックのソケットに接続することで事物の関係や性質を表す。
+Blockly for Prolog のファンクターカテゴリーにファンクター定義ブロックを実装した。以下の図\ref{fig:prolog_functor}に、新たに実装したファンクター定義ブロックのイメージを示す。ファンクター定義ブロックでは、ある事物を定義することができる。入力フォームで事物の名称を入力し、述語定義ブロックの value input に接続することで事物の関係や性質を表す。
 
 \begin{figure}[h]
 \begin{center}
@@ -994,9 +1000,9 @@ Blockly for Prolog の質問カテゴリーに質問ブロックを実装した�
 
 Scheme は、繰り返しやループ構造をすべて再帰呼び出しによって実現できる。ほとんどのプログラミング言語でサポートされている while や for といった制御構造がない。よって、Scheme ではこれらと同じ機能をすべて再帰呼び出しによって実現することができる。
 
-Scheme では関数もひとつのオブジェクトなので、関数を定義するときも変数の定義と同じ define を使う。ただしこの場合は変数に数値型や文字列型オブジェクトを束縛するのではなくて、関数型オブジェクトを束縛します。しかし、関数型オブジェクトはユーザが直接キーボードから入力することはできない。このために Scheme には lambda という特別な構文が用意されている。
+Scheme では手続きもひとつのオブジェクトなので、手続きを定義するときも変数の定義と同じ define を使う。ただしこの場合は変数に数値型や文字列型オブジェクトを束縛するのではなくて、手続き型オブジェクトを束縛する。Scheme には lambda という特別な構文が用意されている。
 
-以下は、Scheme のソースコードを示している。increase関数は指定された定数(第1引数)から昇順に1ずつ加算していき、decrease関数は指定された定数(第1引数)から1ずつ減算していく。既存の関数ブロックを改善する必要があり、「begin」や「call-with-current-continuation」、「lambda」などの構文は、新たなブロックを定義する必要がある。
+以下は、Scheme のソースコードを示している。increase手続きは指定された定数(第1引数)から昇順に1ずつ加算していき、decrease手続きは指定された定数(第1引数)から1ずつ減算していく。既存の関数ブロックを改善する必要があり、「begin」や「call-with-current-continuation」、「lambda」などの構文は、新たなブロックを定義する必要がある。
 
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 (define (increase n k)
@@ -1045,7 +1051,7 @@ Blockly for Scheme の制御カテゴリーに変数束縛ブロックを実装�
 
 \item call/ccブロック
 
-lockly for Scheme の制御カテゴリーにcall/ccブロックを実装した。call/ccとは、call-with-current-continuation という scheme の手続きで、「現在の継続(current continuation)を生成し、それを関数に渡してその関数を実行する」ものである。以下の図\ref{fig:scheme_callcc}にcall/ccブロックのイメージを示す。
+lockly for Scheme の制御カテゴリーにcall/ccブロックを実装した。call/ccとは、call-with-current-continuation という scheme の手続きで、「現在の継続(current continuation)を生成し、それを手続きに渡してその手続きを実行する」ものである。以下の図\ref{fig:scheme_callcc}にcall/ccブロックのイメージを示す。
 
 \begin{figure}[h]
 \begin{center}
@@ -1067,9 +1073,9 @@ lockly for Scheme の関数カテゴリーにlambdaブロックを実装した�
 \end{center}%
 \end{figure}% 
 
-\item 関係定義ブロックと関数ブロック
+\item 手続き定義ブロックと手続き呼出しブロック
 
-Blockly for Scheme の関数カテゴリーに関数定義ブロックと関数ブロックを実装した。関数定義ブロックのMutator機能により引数と式の数を設定できる。Mutator機能の仕様は、lambdaブロックと同じである。以下の図\ref{fig:scheme_func}に関数定義ブロックと関数ブロックのイメージを示す。
+Blockly for Scheme の手続きカテゴリーに手続き定義ブロックと手続き呼出しブロックを実装した。手続き定義ブロックのMutator機能により引数と式の数を設定できる。Mutator機能の仕様は、lambdaブロックと同じである。以下の図\ref{fig:scheme_func}に手続き定義ブロックと手続き呼出しブロックのイメージを示す。
 
 \begin{figure}[h]
 \begin{center}
@@ -1083,17 +1089,17 @@ Blockly for Scheme の関数カテゴリーに関数定義ブロックと関数�
 
    \subsection{Haskell と Prolog における関数ブロック}
    
-既存のBlocklyに用意されてある関数ブロックは、入力フォームにおいて関数名が別の関数ブロックの関数名と重複する場合は強制的に名称が変更される。しかし、HaskellやPrologの文法は同じ関数を扱う場合があるので、HaskellとProlog言語のシステムで実装した関数ブロックでは、重複した場合でも関数名が変更されない仕様にした。
+既存のBlocklyに用意されてある関数ブロックは、入力フォームにおいて関数名が別の関数ブロックの関数名と重複する場合は強制的に名称が変更される。しかし、HaskellやPrologの文法は同じ関数や述語に対する複数の定義を扱う場合があるので、HaskellとProlog言語のシステムで実装した関数ブロックでは、重複した場合でも関数名が変更されない仕様にした。
 
-   \section{Blocky C and Python}
+   \section{Blocky for C and Python}
    
-本システムを実装する際の当初の目標は、先行研究で山形が開発したC言語のシステムを参考にPythonのコード入力でブロックを生成することであったが、時間の都合上、Pythonのソースコードを出力するまでに至った。ブロックは、C言語用に用意されたものである。コードタブをクリックして、テキストベースでC言語ソースコードを直接入力すれば、そのコードに対応したブロックが生成されるが、Pythonのソースコードを入力してブロックを生成することはできない。システムを使う流れは、「C言語コード入力 → ブロック生成　→ Pythonコード確認」である。
+本システムを実装する際の当初の目標は、先行研究で山形が開発したC言語のシステムを参考にPythonのコード入力でブロックを生成することであったが、時間の都合上、Pythonのソースコードを出力するまでにとどまった。ブロックは、C言語用に用意されたものである。コードタブをクリックして、テキストベースでC言語ソースコードを直接入力すれば、そのコードに対応したブロックが生成されるが、Pythonのソースコードを入力してブロックを生成することはできない。システムを使う流れは、「C言語コード入力 → ブロック生成　→ Pythonコード確認」である。
 
 C言語のソースコードから組み立てられたブロックのPythonのコードを確認することで、CとPythonの文法を比較しながら理解することができる。
    
    \section{表記切り替え機能}
    
-Flexのブロックに表記切り替え機能を実装した。表記には2つのタイプがある。1つは自然言語表記（日本語表記とも呼ばれる）で、もう1つはプログラミング言語の演算子とキーワードを使用する表記（Flex表記）である。切り替えは、HTMLフォームのselect要素によって実行される。日本語表記では、初心者にとっては表現の意味が理解しやすいので、Flex表記に切り替えることができる。これにより、各ブロック部分の概念と、正規表現の構文との対応を理解することができる。図\ref{fig:switching_ja}は日本語表記、図\ref{fig:switching_flex}はFlex表記を表す。
+Flexのブロックに表記切り替え機能を実装した。表記には2つのタイプがある。1つは自然言語表記（日本語表記とも呼ばれる）で、もう1つはプログラミング言語の演算子とキーワードを使用する表記（Flex表記）である。切り替えは、HTMLフォームのselect要素によって実行される。これにより、各ブロック部分の概念と、正規表現の構文との対応を理解することができる。図\ref{fig:switching_ja}は日本語表記、図\ref{fig:switching_flex}はFlex表記を表す。
 
 \begin{figure}[h]
 \begin{center}
@@ -1140,7 +1146,7 @@ Blocklyを初めて使う人にスムーズにブロックを組み立てても�
 
    \section{動的変形機能}
    
-Mutatorは、Blocklyの既存に用意されている機能だが、本システムではこのMutatoe機能を利用して新たな動的変形機能を実装した。printfブロックに実装されている。そのブロックのイメージは、図\ref{fig:output}である。このブロックは、Blockly for C で用意されている。Mutator機能では、ブロックの左上に歯車マークがあり動的変形機能が実装されていることが分かるが、このブロックは歯車マークがないので、動的変形機能が実装されていることが分からない。しかし、このブロックの入力フォームに図\ref{fig:output2}のような文字列を入力すると、動的変形機能が実装されていることが分かる。これは、入力フォームで"\%"の数を検出して、その数だけvalue inputの数を動的変形機能で増やしている。value inputとは、変数ブロックや数ブロックを挿入できる穴である。検出のタイミングは、入力フォームの中身に変化があるごとに行われる。この機能は、いちいち歯車マークをクリックしてミニワークスペースでブロックを組み立てる必要もないので、動的変形の手間を省きかつ操作もシンプルになっているので、プログラミング学習者の負担を軽減させることができている。
+Mutatorは、Blocklyの既存に用意されている機能だが、本システムではこのMutator機能を利用して新たな動的変形機能を実装した。printfブロックに実装されている。そのブロックのイメージは、図\ref{fig:output}である。このブロックは、Blockly for C で用意されている。よくあるタイプの動的変形ブロックは、ブロックの左上に歯車マークがあり動的変形機能が実装されていることが分かるが、このブロックは歯車マークがないので、動的変形機能が実装されていることが分からない。しかし、このブロックの入力フォームに図\ref{fig:output2}のような文字列を入力すると、動的変形機能が実装されていることが分かる。これは、入力フォームで"\%"の数を検出して、その数だけvalue inputの数を動的変形機能で増やしている。value inputとは、変数ブロックや数ブロックを挿入できる穴である。検出のタイミングは、入力フォームの中身に変化があるごとに行われる。この機能は、いちいち歯車マークをクリックしてミニワークスペースでブロックを組み立てる必要もないので、動的変形の手間を省きかつ操作もシンプルになっているので、プログラミング学習者の負担を軽減させることができている。
 
 \begin{figure}[h]
 \begin{center}
@@ -1152,14 +1158,14 @@ Mutatorは、Blocklyの既存に用意されている機能だが、本システ
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.5]{img/output2.eps}
+\includegraphics[scale=0.5]{img/output2.png}
 \caption{動的変形後のprintfブロック}%
 \label{fig:output2}
 \end{center}%
 \end{figure}% 
 
    \section{サンプル機能}
-Blocklyを初めて使う人にとって、ワークスペース部が何も無い状態でブロックを一から組み立てて、実行できるプログラムを完成させることは難しい。そこで、このシステムの初心者が利用しやすくするためにサンプル選択フォームを実装した。図\ref{fig:sample}は、サンプル選択フォームを押したときのワークスペース部のイメージである。WEBページの上部に複数のサンプル用意した。この選択フォームでサンプルを選択することによって、システム開発者側が用意したブロックを一瞬でワークスペース部に表示される。システム初心者は、その完成されたブロックのプログラムをアレンジしながらシステムを理解することができる。
+Blocklyを初めて使う人にとって、ワークスペース部が何も無い状態でブロックを一から組み立てて、実行できるプログラムを完成させることは難しい。そこで、このシステムの初心者が利用しやすくするためにサンプル選択フォームを実装した。図\ref{fig:sample}は、サンプル選択フォームを押したときのワークスペース部のイメージである。WEBページの上部に複数のサンプルを用意した。この選択フォームでサンプルを選択することによって、システム開発者側が用意したブロックが一瞬でワークスペース部に表示される。システム初心者は、その完成されたブロックのプログラムをアレンジしながらシステムを理解することができる。
 
 \begin{figure}[h]
 \begin{center}
@@ -1171,7 +1177,7 @@ Blocklyを初めて使う人にとって、ワークスペース部が何も無�
 
    \section{実行結果機能}
    
-こちらの機能は、Haskell言語のシステム(Blockly for Haskell)とProlog言語のシステム(Blockly for Prolog)、Scheme言語のシステム(Blockly for Scheme)で実装されている。ソースコードタブとXMLコードタブの間に実行結果タブを配置した。ワークスペース部でブロックを組み立てた後、プログラム実行結果タブをクリックすると、図\ref{fig:excution_result}のように組み立てたブロックプログラムからの実行結果が表示される。この実行結果は、過去の結果も表示されるので、それらを消去したい場合は「Clear」ボタンをクリックすると消去される。実行結果は、Haskell の場合は hasteHack.js、Prolog の場合は jsprolog.js、Scheme の場合は biwascheme.js を使って動かしている。
+こちらの機能は、Haskell言語のシステム(Blockly for Haskell)とProlog言語のシステム(Blockly for Prolog)、Scheme言語のシステム(Blockly for Scheme)で実装されている。ソースコードタブとXMLコードタブの間に実行結果タブを配置した。ワークスペース部でブロックを組み立てた後、プログラム実行結果タブをクリックすると、図\ref{fig:excution_result}のように組み立てたブロックプログラムからの実行結果が表示される。この実行結果は、過去の結果も表示されるので、それらを消去したい場合は「Clear」ボタンをクリックすると消去される。Prolog の場合は jsprolog.js\cite{jsprolog}、Scheme の場合は biwascheme.js\cite{biwascheme}を使って動かしている。Haskellの場合は、Haste\cite{Haste}で動かしている。
 
 \begin{figure}[h]
 \begin{center}
@@ -1251,7 +1257,7 @@ Haskell言語システムの評価実験は2回行った。被験者には、実
 
 3人中2人が完成されたHaskellコードのブロックを組み立てることができた。２人の被験者の名称をそれぞれA, Bとする。
 
-Aの完成されたHaskellコードのブロックは図\ref{fig:haskell_experiment_result_a}に、そのHaskellのコードは以下である。myTake関数は、指定された数(第1引数)を配列(第2引数)の先頭要素から取り出して出力する関数である。
+Aの完成されたHaskellコードのブロックは図\ref{fig:haskell_experiment_result_a}に、そのHaskellのコードは以下の通りである。myTake関数は、指定された数(第1引数)を配列(第2引数)の先頭要素から取り出して出力する関数である。
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 nums = [1..10]
 
@@ -1273,7 +1279,7 @@ myTake n (x:xs) = (x:myTake (n - 1) xs)
 \end{center}%
 \end{figure}% 
 
-Bの完成されたHaskellコードのブロックは図\ref{fig:haskell_experiment_result_b}に、そのHaskellのコードは以下である。merge関数は、2つのリストを昇順に重複無しで合成する関数である。
+Bの完成されたHaskellコードのブロックは図\ref{fig:haskell_experiment_result_b}に、そのHaskellのコードは以下の通りである。merge関数は、2つのリストを昇順に重複無しで合成する関数である。
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 merge [] ys = ys
 merge xs [] = xs
@@ -1313,7 +1319,7 @@ Haskellの学習経験がほとんどない被験者3人に本研究のHaskell�
 
 \item 改善した方がいいと思うところ
 
-- 実行結果というタブがありますが、どこから実行すればいいのか分からなかった
+- 実行結果というタブがあるが、どこから実行すればいいのか分からなかった
 
 - 実行結果が表示できない場合、ブロックのどこが間違っているのかが分かると使いやすいと思った
 
@@ -1335,7 +1341,7 @@ Haskellの学習経験がほとんどない被験者3人に本研究のHaskell�
 
 2人共、完成されたHaskellコードのブロックを組み立てることができた。２人の被験者の名称をそれぞれC, Dとする。
 
-Cの完成されたHaskellコードのブロックは図\ref{fig:haskell_experiment_result_c}に、そのHaskellのコードは以下である。foo関数で内包表記が使われている。
+Cの完成されたHaskellコードのブロックは図\ref{fig:haskell_experiment_result_c}に、そのHaskellのコードは以下の通りである。foo関数で内包表記が使われている。
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 foo n = [ (x, y) |
     x <- [0..n]
@@ -1353,7 +1359,7 @@ main = do
 \end{center}%
 \end{figure}% 
 
-Dの完成されたHaskellコードのブロックは図\ref{fig:haskell_experiment_result_d}に、そのHaskellのコードは以下である。fromBinAux関数は、初期値(第1引数)とbool型のリスト(第2引数)から末尾再帰で計算していく関数である。
+Dの完成されたHaskellコードのブロックは図\ref{fig:haskell_experiment_result_d}に、そのHaskellのコードは以下の通りである。fromBinAux関数は、初期値(第1引数)とbool型のリスト(第2引数)から末尾再帰で計算していく関数である。
 
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 judge n = if n then 1 else 0
@@ -1378,13 +1384,13 @@ main = do
         
 1回目の評価実験に比べて2回目の評価実験は、被験者のシステム利用時間が短縮された。これらの要因として、チュートリアルのページでブロックの組み立て方を掲載したのが要因であると考えられる。実際に、「使い方の説明書や、サンプルコードもあり非常に使いやすいアプリケーションだと思った」という意見を得ることができた。
 
-2回目にの評価実験で新たに実装した実行結果機能では、「実行結果というタブがありますが、どこから実行すればいいのか分からなかった」という意見や「実行結果が表示できない場合、ブロックのどこが間違っているのかが分かると使いやすいと思った」という改善点を指摘された。実行結果機能については、使いづらかったようでさらなる改善が必要である。
+2回目にの評価実験で新たに実装した実行結果機能では、「実行結果というタブがあるが、どこから実行すればいいのか分からなかった」という意見や「実行結果が表示できない場合、ブロックのどこが間違っているのかが分かると使いやすいと思った」という改善点を指摘された。実行結果機能については、使いづらかったようでさらなる改善が必要である。
 
    \section{Blockly for Flex の評価}
    
    		\subsection{評価方法}
         
-本年度前期の「コンパイラデータベース演習」を履修している31名に評価してもらった。履修生が授業での演習問題に取り組んでいる際、もし行き詰ったりコードが理解できない場合に演習問題に平行してFlexシステムを自由に使用してもらった。そして、演習授業の終了後にアンケートに答えてもらい、以下の評価項目に4段階で回答する形式で行った。
+2019年度前期の「コンパイラデータベース演習」を履修している31名に評価してもらった。履修生が授業での演習問題に取り組んでいる際、もし行き詰ったりコードが理解できない場合に演習問題に並行してFlexシステムを自由に使用してもらった。そして、演習授業の終了後にアンケートに答えてもらい、以下の評価項目に4段階で回答する形式で行った。
 \begin{itemize}
 \item Ｑ1. あなたはプログラミングが得意ですか？
 \item Ｑ2. コンパイラデータベース演習を通してFlex(字句解析)は理解できましたか？
@@ -1471,7 +1477,7 @@ Q1の「あなたはプログラミングが得意ですか？」では、どち
 2020年1月に香川研究室の学部生2名を対象に行った。被験者は、2回目のHaskellの評価実験と同じ被験者でHaskellのシステムを利用してもらった後にPrologのシステムページにアクセスしてもらい、チュートリアルのページでブロックの組み立て方を見ながらシステムを利用してもらう。そして、以下の評価項目に自由に回答する形式で行った。
 
 \begin{itemize}
-\item prolog の学習経験
+\item Prolog の学習経験
 \item Blockly for Prolog を使用した時間
 \item 改善した方がいいと思うところ
 \item 意見や感想
@@ -1486,7 +1492,7 @@ Q1の「あなたはプログラミングが得意ですか？」では、どち
 \begin{itemize}
 \item Prologの学習経験
 
-2人とも、Prologに触れるのが初めてで初学者である。Blocklyを通して初めてprologのプログラムを組み立てることになる。
+2人とも、Prologに触れるのが初めてで初学者である。Blocklyを通して初めてPrologのプログラムを組み立てることになる。
 
 \item Blockly for Prolog を使用した時間
 
@@ -1517,7 +1523,7 @@ Q1の「あなたはプログラミングが得意ですか？」では、どち
 
 2人とも完成されたPrologコードのブロックを組み立てることができた。２人の被験者の名称をそれぞれA, Bとする。
 
-Aの完成されたPrologコードのブロックは図\ref{fig:prolog_experiment_result_a}に、そのPrologのコードは以下である。
+Aの完成されたPrologコードのブロックは図\ref{fig:prolog_experiment_result_a}に、そのPrologのコードは以下の通りである。
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 myAppend([],Y,Y) :-
     myAppend([H|X],Y,[H|Z]).
@@ -1535,7 +1541,7 @@ myAppend(X,Y,Z).
 \end{center}%
 \end{figure}% 
 
-Bの完成されたPrologコードのブロックは図\ref{fig:prolog_experiment_result_b}に、そのPrologのコードは以下である。
+Bの完成されたPrologコードのブロックは図\ref{fig:prolog_experiment_result_b}に、そのPrologのコードは以下の通りである。
 \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
 father(ieyasu,hirotada).
 
@@ -1566,7 +1572,7 @@ Haskellの評価実験後にPrologの評価実験を行ったので、システ�
    
    \section{まとめ}
    
-本研究では、大学の講義で学習するプログラミング言語に対応させるために、Blocklyの多言語化を行った。対応言語は、C、JavaScript、Haskell、Bison Flex、Prolog、Scheme、Pythonである。それぞれの言語システムでプログラミング言語に対応した文法に対応した新たなブロックをいくつか実装した。その際、プログラミング言語の柔軟性を保持するために、ブロックの動的変形機能の拡張も行った。
+本研究では、本大学・大学院の授業で学習するプログラミング言語に対応したBlocklyを実装した。対応言語は、C、Haskell、Flex、Prolog、Scheme、Pythonである。それぞれの言語システムでプログラミング言語に対応した文法に対応した新たなブロックをいくつか実装した。その際、プログラミング言語の柔軟性を保持するために、ブロックの動的変形機能の拡張も行った。
 
 2回目のHaskellシステムの評価実験で得られたフィードバックを通して、実装したブロックを改善し、チュートリアルのページを作成した。また、被験者の要望により実行機能も実装した。しかし、新たに実装した実行結果機能について使いづらいといったフィードバックを得られたので改善が必要である。
 
@@ -1584,15 +1590,15 @@ Prologシステムの評価実験でも被験者はBlocklyを通して文法の�
 
 \item 実行結果機能の改善
 
-2回目のHaskellの評価実験において、「実行結果というタブがありますが、どこから実行すればいいのか分からなかった」、「実行結果が表示できない場合、ブロックのどこが間違っているのかが分かると使いやすいと思った」といった意見が得られた。これらのフィードバックをもとに、実行結果機能のUIの改善と実行結果が表示されない場合のエラー表示とエラーの原因がどこのコードの部分かをBlocklyのブロックで可視化する必要がある。
+2回目のHaskellの評価実験において、「実行結果というタブがあるが、どこから実行すればいいのか分からなかった」、「実行結果が表示できない場合、ブロックのどこが間違っているのかが分かると使いやすいと思った」といった意見が得られた。これらのフィードバックをもとに、実行結果機能のUIの改善と実行結果が表示されない場合のエラー表示とエラーの原因がどこのコードの部分かをBlocklyのブロックで可視化する必要がある。
 
 \item Flexシステムの簡素化
 
-Flexシステムの評価実験において、ある一定数の被験者が時間の都合上利用できなかった。時間があまりない状況では、手軽に使えるシステムを目指さなければなたない。そこで、Flexの重要部分である動作の正規表現を分かりやすく扱えるようにFlexシステムの簡素化する必要がある。具体案としては、制御ブロックや関数ブロックを消去するなどである。
+Flexシステムの評価実験において、ある一定数の被験者が時間の都合上利用できなかった。時間があまりない状況では、手軽に使えるシステムを目指さなければなたない。そこで、Flexの重要部分である動作の正規表現を分かりやすく扱えるようにFlexシステムの簡素化する必要がある。具体案としては、制御ブロックや関数ブロックをブロックメニュー部から消去するなどである。
 
 \item ソースコードからのブロック生成機能の拡張
 
-関連研究である山形のシステムでは、C言語ソースコ－ドからXMLへ変換してブロックを生成するといった機能がある。本システムでは、Blockly C and Python に一部実装してある。しかし、C言語のソースコードからブロックを生成できてもPythonのソースコードからブロックを生成することができない。そこで、まずはPythonのソースコードからブロックを生成できることを目指して、そこから他の言語システムでもソースコードからブロックを生成できるように機能を拡張していく必要がある。
+関連研究である山形のシステムでは、C言語ソースコ－ドからXMLへ変換してブロックを生成するといった機能がある。本システムでは、Blockly for C and Python に一部実装してある。しかし、C言語のソースコードからブロックを生成できてもPythonのソースコードからブロックを生成することができない。そこで、まずはPythonのソースコードからブロックを生成できることを目指して、そこから他の言語システムでもソースコードからブロックを生成できるように機能を拡張していく必要がある。
 
 \end{itemize} 
  
@@ -1635,15 +1641,23 @@ Flexシステムの評価実験において、ある一定数の被験者が時�
   \bibitem{idc} % 論文
  David Weintrop, Uri Wilensky
  ``To Block or not to Block, That is the Question: Students’ Perceptions of Blocks-based Programming
-'', IDC'15, June 2015. 
+'', International Discussion and Conference in 2015, June 2015.
 
   \bibitem{flex} % 論文
  G. T. Nicol
  ``Flex: the lexical scanner generator, Free Software Foundation'', 1993.
+
+  \bibitem{jsprolog} % 論文
+ npm
+ ``jsprolog'', https://www.npmjs.com/package/jsprolog, 2020年2月閲覧.
  
-  \bibitem{prolog} % 論文
- Nitta Lab., Computer Science, Tsuda University, Japan.
- ``Prolog'', https://nw.tsuda.ac.jp/lec/prolog/, 2020年2月閲覧.
+  \bibitem{biwascheme} % 論文
+ Yutaka Hara
+ ``biwascheme'', https://www.biwascheme.org/, 2020年2月閲覧.
+ 
+  \bibitem{Haste} % 論文
+ Krasimir Angelov, Simon Marlow
+ ``Visual haskell: a full-featured haskell development environment'', Haskell '05: Proceedings of the 2005 ACM SIGPLAN workshop on Haskell, September 2005.
 
 \end{thebibliography}
 
